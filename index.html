@@ -9,9 +9,9 @@
   :root {
     --cream: #f2f5f9;
     --ink: #1a2233;
-    --warm-gray: #6b7a96;
-    --accent: #2c5f9e;
-    --accent-dark: #1e4a7e;
+    --warm-gray: #4a5568;       /* darkened from #6b7a96 — now 7:1 on white, 5.5:1 on cream ✓ AA */
+    --accent: #1a4f8a;          /* darkened from #2c5f9e — 4.8:1 on white ✓ AA */
+    --accent-dark: #163f70;
     --accent-light: #d0ddf0;
     --border: #cdd5e3;
     --card-bg: #ffffff;
@@ -247,10 +247,10 @@
   }
   .exp-item:hover { background: #2d3d57; border-left-color: var(--accent); }
 
-  .exp-years { font-size: 0.72rem; letter-spacing: 0.15em; color: var(--accent-light); margin-bottom: 0.75rem; }
+  .exp-years { font-size: 0.72rem; letter-spacing: 0.15em; color: #a8bfd8; margin-bottom: 0.75rem; }
   .exp-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
-  .exp-org { font-size: 0.82rem; color: #8aaed4; margin-bottom: 0.75rem; }
-  .exp-desc { font-size: 0.82rem; color: #8090aa; line-height: 1.7; }
+  .exp-org { font-size: 0.82rem; color: #a8bfd8; margin-bottom: 0.75rem; }
+  .exp-desc { font-size: 0.82rem; color: #c8d8ea; line-height: 1.7; }
 
   /* PROJECTS */
   .projects { background: var(--cream); }
@@ -385,6 +385,15 @@
 
   .skill-list li::before { content: '▸'; color: var(--accent); font-size: 0.65rem; margin-top: 0.25rem; flex-shrink: 0; }
 
+  .pub-category {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin: 0.75rem 0 0.4rem;
+  }
+
   .pub-item {
     font-size: 0.82rem;
     color: var(--warm-gray);
@@ -408,7 +417,7 @@
   .contact .section-label { color: var(--accent-light); }
   .contact .section-title { color: #fff; margin-bottom: 1.5rem; }
 
-  .contact-sub { color: #8090aa; font-size: 0.95rem; margin-bottom: 3rem; }
+  .contact-sub { color: #a8bfd8; font-size: 0.95rem; margin-bottom: 3rem; }
 
   .contact-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
 
@@ -426,7 +435,7 @@
 
   footer {
     background: #111827;
-    color: #5a6a80;
+    color: #8a9ab5;
     text-align: center;
     padding: 1.5rem;
     font-size: 0.75rem;
@@ -527,6 +536,12 @@
       <p class="exp-title">Instructional Designer Intern</p>
       <p class="exp-org">School of Professional Studies, Columbia University · New York, NY</p>
       <p class="exp-desc">Designed and facilitated an Empathic Course Design workshop for 12 SMEs. Collaborated with IDs to develop four master-level online courses in Canvas and Adobe Captivate; delivered actionable feedback on syllabi and storyboards to strengthen instructional alignment.</p>
+    </div>
+    <div class="exp-item fade-in">
+      <p class="exp-years">May 2023 — May 2024</p>
+      <p class="exp-title">Curriculum Designer & Academic Advisor</p>
+      <p class="exp-org">Thinktown Education · New York, NY</p>
+      <p class="exp-desc">Redesigned psychology curriculum based on assessment data, integrating project-based learning and 6 animated videos using Canva and CapCut, improving student research skills. Reconstructed a lecture-based curriculum into a project-based learning experience, increasing enrollment by 5× and achieving a 100% student completion rate.</p>
     </div>
     <div class="exp-item fade-in">
       <p class="exp-years">May 2020 — Jun 2021</p>
@@ -848,6 +863,7 @@
     <div>
       <div class="skill-group">
         <p class="skill-group-title">Publications</p>
+        <p class="pub-category">Journal Articles</p>
         <div class="pub-item">
           <strong>Lei, Y.</strong>, Meng, X., Huang, X., Li, J., Jiang, Y., Yu, Y., & Literat, I. (2024). Short videos, big impact: How Chinese youth perceive and engage with news on short video platforms. <em>Global Media and China.</em><br>
           <a href="https://doi.org/10.1177/20594364241298055" target="_blank">doi.org/10.1177/20594364241298055</a>
@@ -855,6 +871,16 @@
         <div class="pub-item">
           Saiyinjiya, A., Gu, Y., <strong>Lei, Y.</strong>, Meng, X., & Literat, I. (2024). Bringing #LinaBell to life online: A case study in Chinese online fandom. <em>Media, Culture & Society.</em><br>
           <a href="https://doi.org/10.1177/01634437241301615" target="_blank">doi.org/10.1177/01634437241301615</a>
+        </div>
+        <p class="pub-category">Conference Proceedings</p>
+        <div class="pub-item">
+          Russo, R., <strong>Lei, Y.</strong>, & Blikstein, P. (2023). Disinformation as an emergent phenomenon: An agent-based modeling curriculum to address fake news. In Blikstein, P., Van Aalst, J., Kizito, R., & Brennan, K. (Eds.), <em>Proceedings of the 17th International Conference of the Learning Sciences - ICLS 2023</em> (pp. 2155–2156). International Society of the Learning Sciences.
+        </div>
+        <div class="pub-item">
+          Russo, R., Hong, E., Wei, Z., <strong>Lei, Y.</strong>, & Blikstein, P. (2024). Mapping Disinformation: Agent-Based Modelling Instruction for Cognitive and Systemic Dimensions of Media Ecosystems. In Lindgren, R., Asino, T. I., Kyza, E. A., Looi, C. K., Keifert, D. T., & Suárez, E. (Eds.), <em>Proceedings of the 18th International Conference of the Learning Sciences - ICLS 2024</em> (pp. 1582–1585). International Society of the Learning Sciences.
+        </div>
+        <div class="pub-item">
+          Chang, Y. K., Literat, I., Song, X., Li, X., Meng, X., & <strong>Lei, Y.</strong> (2024). A Framework for Inclusive Game-Based Learning Design, Illustrated Through the Development of a Media Literacy Game. In Lindgren, R., Asino, T. I., Kyza, E. A., Looi, C. K., Keifert, D. T., & Suárez, E. (Eds.), <em>Proceedings of the 18th International Conference of the Learning Sciences - ICLS 2024</em> (pp. 2105–2106). International Society of the Learning Sciences.
         </div>
       </div>
     </div>
