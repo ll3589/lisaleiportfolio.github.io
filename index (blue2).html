@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuruo Lei — Instructional Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f2f5f9;
+    --ink: #1a2233;
+    --warm-gray: #6b7a96;
+    --accent: #2c5f9e;
+    --accent-dark: #1e4a7e;
+    --accent-light: #d0ddf0;
+    --border: #cdd5e3;
+    --card-bg: #ffffff;
+    --section-alt: #e8edf5;
+    --dark-bg: #1a2233;
+    --dark-card: #243047;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero-photo-wrap {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-light);
+    margin-bottom: 1.8rem;
+    box-shadow: 0 4px 20px rgba(44,95,158,0.15);
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-alias {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.55em;
+    font-style: italic;
+    color: var(--warm-gray);
+    font-weight: 300;
+    vertical-align: middle;
+  }
+
+  .title-rotate {
+    display: inline-block;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .title-rotate.fade-out {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  .title-rotate.fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(242,245,249,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name em { font-style: italic; color: var(--accent); }
+
+  .hero-tagline {
+    font-size: 1rem;
+    color: var(--warm-gray);
+    max-width: 380px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--accent-dark); }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--accent); color: #fff; }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5rem 4rem;
+  }
+
+  .hero-bio-block {
+    border-top: 1px solid var(--border);
+    padding-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-bio-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-bio-text { font-size: 0.95rem; color: var(--ink); line-height: 1.8; }
+
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .edu-school {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .edu-degree { font-size: 0.8rem; color: var(--warm-gray); margin-top: 0.2rem; }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 3rem;
+  }
+
+  /* EXPERIENCE */
+  .experience { background: var(--dark-bg); color: #fff; }
+  .experience .section-label { color: var(--accent-light); }
+  .experience .section-title { color: #fff; }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 1rem;
+  }
+
+  .exp-item {
+    background: var(--dark-card);
+    padding: 2.5rem;
+    transition: background 0.2s;
+    border-left: 3px solid transparent;
+  }
+  .exp-item:hover { background: #2d3d57; border-left-color: var(--accent); }
+
+  .exp-years { font-size: 0.72rem; letter-spacing: 0.15em; color: var(--accent-light); margin-bottom: 0.75rem; }
+  .exp-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
+  .exp-org { font-size: 0.82rem; color: #8aaed4; margin-bottom: 0.75rem; }
+  .exp-desc { font-size: 0.82rem; color: #8090aa; line-height: 1.7; }
+
+  /* PROJECTS */
+  .projects { background: var(--cream); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent-light);
+    transition: box-shadow 0.25s, transform 0.25s, border-top-color 0.25s;
+    position: relative;
+  }
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(44,95,158,0.1);
+    border-top-color: var(--accent);
+  }
+
+  .project-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+
+  .project-subtitle {
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+  }
+
+  .project-impact {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+  }
+
+  /* Accordion structure */
+  .project-summary { font-size: 0.88rem; color: var(--warm-gray); line-height: 1.75; margin-bottom: 1rem; }
+
+  .project-detail { margin-top: 0.5rem; }
+
+  .detail-row {
+    margin-bottom: 0.9rem;
+    padding-left: 0.9rem;
+    border-left: 2px solid var(--accent-light);
+  }
+
+  .detail-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+  }
+
+  .detail-text { font-size: 0.83rem; color: var(--warm-gray); line-height: 1.7; }
+
+  .project-tools {
+    font-size: 0.78rem;
+    color: var(--warm-gray);
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+  .project-tools strong { color: var(--ink); font-weight: 500; }
+
+  .project-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+
+  .project-link {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent-light);
+    padding: 0.35rem 0.9rem;
+    transition: all 0.2s;
+  }
+  .project-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* SKILLS */
+  .skills { background: var(--section-alt); }
+
+  .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+
+  .skill-group { margin-bottom: 2rem; }
+
+  .skill-group-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-light);
+    padding-bottom: 0.5rem;
+  }
+
+  .skill-list { list-style: none; }
+
+  .skill-list li {
+    font-size: 0.88rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .skill-list li::before { content: '▸'; color: var(--accent); font-size: 0.65rem; margin-top: 0.25rem; flex-shrink: 0; }
+
+  .pub-item {
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+  }
+
+  .pub-item a { color: var(--accent); font-size: 0.76rem; }
+
+  /* CONTACT */
+  .contact {
+    background: var(--dark-bg);
+    color: #fff;
+    text-align: center;
+    padding: 7rem 4rem;
+  }
+
+  .contact .section-label { color: var(--accent-light); }
+  .contact .section-title { color: #fff; margin-bottom: 1.5rem; }
+
+  .contact-sub { color: #8090aa; font-size: 0.95rem; margin-bottom: 3rem; }
+
+  .contact-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+
+  .contact-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #3d5070;
+    padding-bottom: 0.2rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-link:hover { color: var(--accent-light); border-color: var(--accent-light); }
+
+  footer {
+    background: #111827;
+    color: #5a6a80;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 6rem 1.5rem 2rem; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-right { padding: 2rem 1.5rem; }
+    .edu-grid { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.5rem; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#">Lisa Lei</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-left">
+    <div class="hero-photo-wrap">
+      <img src="profile.jpeg" alt="Yuruo Lisa Lei" class="hero-photo">
+    </div>
+    <p class="hero-eyebrow"><span class="title-rotate" id="titleRotate">Instructional Designer</span></p>
+    <h1 class="hero-name">Lisa<br><em>Lei</em></h1>
+    <p class="hero-tagline">Instructional Designer with senior-level expertise in higher-education e-learning. Led design of 7 Coursera courses and 5 online degree programs, expanding reach to 4,500+ learners and cutting course build time by more than 50%.</p>
+    <div class="hero-cta">
+      <a href="https://drive.google.com/file/d/12qD0TJk3OIRP2TLdG3t3IESPIUacBjy1/view?usp=sharing" class="btn-primary" target="_blank">View Resume</a>
+      <a href="https://www.linkedin.com/in/yuruolei9969/" class="btn-outline" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bio-block fade-in">
+      <p class="hero-bio-label">Education</p>
+      <div class="edu-grid">
+        <div class="edu-item">
+          <p class="edu-school">Columbia University</p>
+          <p class="edu-degree">Ed.M, Instructional Technology & Media, 2024</p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-school">Boston University</p>
+          <p class="edu-degree">B.A. Psychology · B.S. Bilingual Education</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bio-block fade-in">
+      <p class="hero-bio-label">Passions</p>
+      <p class="hero-bio-text">Empathic & human-centered design · Media & AI-empowered learning · Engaging content for adult learners · Education equity</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <p class="section-label">Career</p>
+  <h2 class="section-title">Professional Pathway</h2>
+  <div class="exp-grid">
+    <div class="exp-item fade-in">
+      <p class="exp-years">Jun 2024 — Present</p>
+      <p class="exp-title">Instructional Designer</p>
+      <p class="exp-org">Vanderbilt University · Nashville, TN</p>
+      <p class="exp-desc">Led design of 7 Coursera microlearning courses, 5 online degree programs, 3 certificate programs, and 10 async faculty trainings — expanding Vanderbilt's online reach to 4,500+ learners. Reduced course build cycles from 9 to 4 months. Developed QA systems reducing review time 60%. Launched an AI-driven faculty training program reaching 400+ faculty annually at 70–80% lower delivery cost.</p>
+    </div>
+    <div class="exp-item fade-in">
+      <p class="exp-years">Mar 2025 — Jun 2025</p>
+      <p class="exp-title">Instructional Design Consultant & Project Manager</p>
+      <p class="exp-org">Yale School of Medicine · Remote (Part-Time)</p>
+      <p class="exp-desc">Developed a standardized instructor-led workshop template and streamlined job-aid production, reducing nurse training preparation time by 40%. Collaborated with 3 SMEs to design multi-format nurse training materials including interactive webpages, PDF job aids, and slide decks.</p>
+    </div>
+    <div class="exp-item fade-in">
+      <p class="exp-years">May 2023 — Aug 2023</p>
+      <p class="exp-title">Instructional Designer Intern</p>
+      <p class="exp-org">School of Professional Studies, Columbia University · New York, NY</p>
+      <p class="exp-desc">Designed and facilitated an Empathic Course Design workshop for 12 SMEs. Collaborated with IDs to develop four master-level online courses in Canvas and Adobe Captivate; delivered actionable feedback on syllabi and storyboards to strengthen instructional alignment.</p>
+    </div>
+    <div class="exp-item fade-in">
+      <p class="exp-years">May 2020 — Jun 2021</p>
+      <p class="exp-title">Instructional Designer & Product Manager</p>
+      <p class="exp-org">iFLYTEK · Shanghai, China</p>
+      <p class="exp-desc">Developed 12 story-based, gamified English learning modules for 50,000+ learners. Designed branching scenarios as formative assessments. Facilitated 3 usability sessions and iteratively improved features — resulting in integration into iFLYTEK's best-selling educational product.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <p class="section-label">Work</p>
+  <h2 class="section-title">Selected Projects</h2>
+  <div class="projects-grid">
+
+    <!-- 1. Online Learning Faculty Hub -->
+    <div class="project-card fade-in">
+      <p class="project-tag">Online Learning · Faculty Development</p>
+      <h3 class="project-title">Online Learning Faculty Hub</h3>
+      <p class="project-subtitle">SharePoint Resource Site for New Online Faculty</p>
+      <div class="project-links">
+        <a href="https://youtu.be/LsU1K57-328?si=sNZry4IbQN1rp1MX" class="project-link" target="_blank">▶ Watch Demo</a>
+      </div>
+      <span class="project-impact">↑ Centralized onboarding for online educators</span>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-text">New and returning faculty members transitioning to online course delivery at Vanderbilt University.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-text">Faculty lacked a centralized, accessible resource hub to guide them through online teaching best practices, tools, and institutional support.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">📍 Goal</p>
+          <p class="detail-text">Create a one-stop SharePoint site that streamlines faculty onboarding to online learning and reduces repeated individual support requests.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-text">Designed and built a structured SharePoint site with curated instructional resources, how-to guides, and video walkthroughs aligned to faculty needs and the course design lifecycle.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-text">Delivered a scalable, self-service resource hub that improved faculty orientation to online teaching and reduced onboarding friction.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-text">This project reinforced the value of designing for the full faculty journey — not just content delivery, but navigation, trust-building, and just-in-time support.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> SharePoint, Video Production</p>
+    </div>
+
+    <!-- 2. Gemini AI App -->
+    <div class="project-card fade-in">
+      <p class="project-tag">AI Tool · Higher Education</p>
+      <h3 class="project-title">From Research to Learning Activities</h3>
+      <p class="project-subtitle">A Gemini AI App for Instructional Designers</p>
+      <div class="project-links">
+        <a href="https://from-research-to-learning-441065358755.us-west1.run.app/" class="project-link" target="_blank">🔗 Try the App</a>
+        <a href="https://youtu.be/6g2AOlSD700?si=aqUqyWNYgsTi2bJ0" class="project-link" target="_blank">▶ Watch Demo</a>
+      </div>
+      <span class="project-impact">↑ Accelerates design-to-activity workflow</span>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-text">Instructional designers working with SMEs across disciplines; faculty designing new or revised courses in online or accelerated formats.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-text">IDs working outside their domain spend disproportionate time decoding dense research, often defaulting to surface-level assessments and relying heavily on SMEs to generate ideas — reinforcing an imbalance where the SME creates and the ID executes.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">📍 Goal</p>
+          <p class="detail-text">Give IDs a structured starting point for activity ideation, accelerate the research-to-design workflow, and enable more sophisticated, scenario-based learning suggestions across unfamiliar disciplines.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-text">Built a web application in Gemini AI Studio where users upload a PDF or enter a DOI. The system extracts key ideas and generates pedagogically grounded activity suggestions, mirroring how experienced IDs progress from comprehension to application and transfer.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-text">The tool shifts the ID's role from note-taker to learning strategist — enabling designers to enter SME conversations with structured, application-oriented proposals rather than blank slates, shortening design cycles significantly.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-text">Building this app deepened my understanding of AI as a cognitive accelerator. Rather than replacing expertise, it augments pedagogical thinking — freeing IDs to focus on alignment, learner experience, and assessment strategy.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> Gemini AI Studio, Google Cloud Run</p>
+    </div>
+
+    <!-- 3. Operation: Hire Me -->
+    <div class="project-card fade-in">
+      <p class="project-tag">Multimedia · Workplace Learning</p>
+      <h3 class="project-title">Operation: Hire Me!</h3>
+      <p class="project-subtitle">AI-Enhanced Professional Learning Kit for Young Job Seekers</p>
+      <div class="project-links">
+        <a href="https://youtu.be/IpY_apzgFN0?si=PdY8kdhNU0C8jfDh" class="project-link" target="_blank">▶ Watch Demo</a>
+      </div>
+      <span class="project-impact">↑ 70%+ faculty engagement at Vanderbilt CDI</span>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-text">Young adult job seekers navigating competitive interview processes with limited structured preparation resources.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-text">Existing solutions like university career centers are insufficient for interview skill-building — especially for the nuanced, contextual preparation that modern job searches require.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">📍 Goal</p>
+          <p class="detail-text">Provide young adult job seekers with effective, accessible tools to build interview skills and reduce job-hunt stress through structured, engaging learning experiences.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-text">Developed an AI-enhanced learning kit using the SAM instructional design framework. Incorporated AI-generated comic scenarios, scenario-based activities, and peer assessment to make learning engaging and collaborative.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-text">AI Comic Scenarios were featured at Vanderbilt's prestigious Course Design Institute (CDI), a two-day workshop attended by 49 faculty members. Over 70% found the scenarios engaging, generating four post-workshop follow-ups from faculty seeking to integrate the approach into their own teaching.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-text">This project strengthened my problem-solving mindset and showed me how cutting-edge AI tools can expand learning beyond the screen. Interviewing learners directly grounded my design decisions in real pain points rather than assumptions.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> Articulate Storyline, Adobe Premiere Pro, AI Comic Generator, CapCut, Canva</p>
+    </div>
+
+    <!-- 4. Tricked by a Logo -->
+    <div class="project-card fade-in">
+      <p class="project-tag">Workshop · Marketing</p>
+      <h3 class="project-title">Tricked by a Logo?</h3>
+      <p class="project-subtitle">Pop Psychology Instructor-Led Workshop & Marketing Campaign</p>
+      <div class="project-links">
+        <a href="https://www.canva.com/design/DAF1lIKuN_M/U-K-UHj1Rayfi__31s04IA/view?utm_content=DAF1lIKuN_M&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5ba7131ac5" class="project-link" target="_blank">🔗 View Slides</a>
+      </div>
+      <span class="project-impact">↑ 22% increase in customer conversion rate</span>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-text">High school students and their parents — the primary decision-makers for program enrollment.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-text">A new research-based psychology curriculum lacked visibility and needed a creative marketing strategy to drive enrollment and awareness among target clients.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">📍 Goal</p>
+          <p class="detail-text">Generate at least 2 enrollment inquiries from a 10-person workshop, while demonstrating the curriculum's methodology through the workshop experience itself.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-text">Designed and facilitated an engaging pop psychology workshop exploring how consumer behavior connects to the priming effect — mirroring the curriculum's core methodology of identifying everyday phenomena, analyzing them through a psychological lens, and encouraging critical thinking.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-text">3 out of 7 participants enrolled in the full psychology program, exceeding the original goal. Customer conversion rate increased by 22%.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-text">I recognized that parents — the key decision-makers — were less directly engaged during the session. Moving forward, I would develop dedicated parent-facing messaging that translates program outcomes into clear, relevant value for their priorities.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> Canva, Zoom, Kahoot</p>
+    </div>
+
+    <!-- 5. Career 101 -->
+    <div class="project-card fade-in">
+      <p class="project-tag">E-Learning · Adobe Captivate</p>
+      <h3 class="project-title">Career 101 — Self Discovery Module</h3>
+      <p class="project-subtitle">Async E-learning Module · Adobe Captivate</p>
+      <div class="project-links">
+        <a href="https://yuruo99coursedesign.s3.amazonaws.com/Career+Choice+101+M1+v3/index.html" class="project-link" target="_blank">🔗 View Module</a>
+      </div>
+      <span class="project-impact">↑ Positive learner feedback on interactive design</span>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-text">College students in New Zealand seeking career guidance, and Guo Ye — a career coach migrating her one-on-one practice to a scalable e-learning model.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-text">Guo Ye's coaching content was unstructured and designed for in-person delivery. She had limited knowledge of the New Zealand career services landscape and no prior e-learning experience.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">📍 Goal</p>
+          <p class="detail-text">Consolidate Guo Ye's coaching philosophy into a structured framework, then transfer it into an accessible, interactive e-learning module for self-directed learners before their coaching sessions.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-text">Researched New Zealand's career services landscape and adopted Holland's Theory as the course framework. Conducted interviews with international students to surface their needs, then co-developed a SEPA (Self-reflection, Ethics, Plan, Action) model with the SME and built the module in Adobe Captivate with interactive quizzes and reflection activities.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-text">Draft testers and the client provided positive feedback on the interactive quiz design and SEPA framework structure. The project is ongoing with iterative refinements based on learner testing.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-text">Navigating two distinct stakeholders — the coach and the learners — while building the course framework from scratch was a significant learning experience. It sharpened my stakeholder interview skills and deepened my Adobe Captivate proficiency.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> Adobe Captivate, Miro, Amazon Web Services</p>
+    </div>
+
+    <!-- 6. Empathic Course Design -->
+    <div class="project-card fade-in">
+      <p class="project-tag">E-Learning · Faculty Workshop</p>
+      <h3 class="project-title">Empathic Course Design Workshop</h3>
+      <p class="project-subtitle">Self-Guided Online Workshop · Columbia University SPS</p>
+      <div class="project-links">
+        <a href="https://youtu.be/TwFQYluropw?si=YC4B2vd-rNb5g4qU" class="project-link" target="_blank">▶ Watch Demo</a>
+      </div>
+      <span class="project-impact">↑ 25% increase in client follow-up inquiries</span>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-text">Faculty members at Columbia University's School of Professional Studies — subject matter experts who often struggle to connect course design with students' lived learning needs.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-text">Despite deep expertise, many SPS faculty found it difficult to design courses that genuinely aligned with students' learning goals and engaged a diverse student body. The gap between expertise and empathic design was real but underacknowledged.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">📍 Goal</p>
+          <p class="detail-text">Raise faculty awareness of empathic course design and equip them with practical, immediately applicable strategies to strengthen cognitive and social empathy in their teaching practice.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-text">Interviewed ID colleagues to surface practical insights, then researched Empathic Course Design theory to structure the workshop. Developed an instructional video using CapCut, shared student feedback examples to illustrate the problem, and distributed a curated resource list for ongoing application.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-text">12 faculty members and IDs attended. Three reached out for further discussion post-workshop. Follow-up inquiry rate increased by 25%, and the workshop elevated empathic design as a team-wide conversation among the ID team.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-text">Designing this workshop revealed how video production skills are essential for modern instructional designers. Exploring CapCut as a lightweight, accessible tool was a creative constraint that pushed me to focus on clarity and storytelling over production complexity.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> Canva, Canvas LMS, Camtasia, CapCut, Google Docs & Sheets</p>
+    </div>
+
+    <!-- 7. DecideWise -->
+    <div class="project-card fade-in">
+      <p class="project-tag">UX · App Design · SEL</p>
+      <h3 class="project-title">DecideWise Learning App</h3>
+      <p class="project-subtitle">Educational Mobile App Design — Collaborative Project</p>
+      <div class="project-links">
+        <a href="https://youtu.be/S0wD-W78sE4?si=JoiH9RizeIJIBjSM" class="project-link" target="_blank">▶ Watch Demo</a>
+      </div>
+      <span class="project-impact">↑ 2nd most sought investment in class showcase</span>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-text">Emerging adults aged 18–26 who face pivotal life decisions without adequate structured support for building decision-making skills.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-text">Young adults navigate major decisions — career, relationships, finances — largely without frameworks or skill-building resources. Decision-making is rarely treated as a learnable, teachable skill.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">📍 Goal</p>
+          <p class="detail-text">Raise awareness that decision-making is a learnable skill, and provide emerging adults with a gamified, evidence-based mobile experience to practice and strengthen it.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-text">Grounded the app's design in SEL (Social Emotional Learning) research and literature. Incorporated cost-benefit evaluation models, guided introspection activities, and gamification elements. Developed animated pitch videos to explain app functions and used Figma to prototype the user interface collaboratively.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-text">The app emerged as the second most sought-after investment opportunity in the class showcase. Multiple classmates reached out post-presentation to request additional SEL activities and resources.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-text">Collaborating across stakeholders while building an entirely new framework from scratch required disciplined prioritization. The project reinforced how stakeholder interviews and literature grounding together create more resonant, credible design rationale.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> Figma, Adobe Premiere Pro, Canva</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <p class="section-label">Expertise</p>
+  <h2 class="section-title">Skills & Publications</h2>
+  <div class="skills-layout">
+    <div>
+      <div class="skill-group">
+        <p class="skill-group-title">Core Skills</p>
+        <ul class="skill-list">
+          <li>Course Authoring — Articulate Rise, Adobe Captivate</li>
+          <li>LMS — Brightspace & Canvas (specialist), Coursera</li>
+          <li>Learning Analytics — R, Python</li>
+          <li>Storyboarding & Instructional Design (ADDIE, SAM)</li>
+          <li>Figma, Canva, Microlearning, Accessibility Compliance</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Relevant Skills</p>
+        <ul class="skill-list">
+          <li>Project Management — Monday, Notion, Agile</li>
+          <li>Front-End Development — HTML, CSS, JavaScript</li>
+          <li>Video Production — Kaltura, Camtasia, CapCut</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">AI-Powered Tools</p>
+        <ul class="skill-list">
+          <li>Synthesia, HeyGen, DALL-E, Dashtoon, Gamma</li>
+          <li>Gemini AI Studio, ChatGPT, ElevenLabs</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group">
+        <p class="skill-group-title">Publications</p>
+        <div class="pub-item">
+          <strong>Lei, Y.</strong>, Meng, X., Huang, X., Li, J., Jiang, Y., Yu, Y., & Literat, I. (2024). Short videos, big impact: How Chinese youth perceive and engage with news on short video platforms. <em>Global Media and China.</em><br>
+          <a href="https://doi.org/10.1177/20594364241298055" target="_blank">doi.org/10.1177/20594364241298055</a>
+        </div>
+        <div class="pub-item">
+          Saiyinjiya, A., Gu, Y., <strong>Lei, Y.</strong>, Meng, X., & Literat, I. (2024). Bringing #LinaBell to life online: A case study in Chinese online fandom. <em>Media, Culture & Society.</em><br>
+          <a href="https://doi.org/10.1177/01634437241301615" target="_blank">doi.org/10.1177/01634437241301615</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label">Get in Touch</p>
+  <h2 class="section-title">Let's Connect</h2>
+  <p class="contact-sub">Open to collaborations, consultations, and conversations about learning design.</p>
+  <div class="contact-links">
+    <a href="mailto:leilisa99@gmail.com" class="contact-link">leilisa99@gmail.com</a>
+    <a href="https://www.linkedin.com/in/yuruolei9969/" class="contact-link" target="_blank">LinkedIn</a>
+    <a href="https://drive.google.com/file/d/12qD0TJk3OIRP2TLdG3t3IESPIUacBjy1/view?usp=sharing" class="contact-link" target="_blank">Resume PDF</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Yuruo Lei · Instructional Designer · Nashville, TN
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Rotating titles
+  const titles = ['Instructional Designer', 'Learning Experience Designer', 'Online Learning Consultant', 'Learning Analyst', 'Learning Designer', 'Media Researcher'];
+  let titleIndex = 0;
+  const titleEl = document.getElementById('titleRotate');
+  setInterval(() => {
+    titleEl.classList.add('fade-out');
+    setTimeout(() => {
+      titleIndex = (titleIndex + 1) % titles.length;
+      titleEl.textContent = titles[titleIndex];
+      titleEl.classList.remove('fade-out');
+    }, 400);
+  }, 2500);
+</script>
+</body>
+</html>
