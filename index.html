@@ -472,8 +472,8 @@
   <a class="nav-name" href="#">Lisa Lei</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -514,51 +514,52 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section class="experience" id="experience">
-  <p class="section-label">Career</p>
-  <h2 class="section-title">Professional Pathway</h2>
-  <div class="exp-grid">
-    <div class="exp-item fade-in">
-      <p class="exp-years">Jun 2024 — Present</p>
-      <p class="exp-title">Instructional Designer</p>
-      <p class="exp-org">Vanderbilt University · Nashville, TN</p>
-      <p class="exp-desc">Led design of 7 Coursera microlearning courses, 5 online degree programs, 3 certificate programs, and 10 async faculty trainings — expanding Vanderbilt's online reach to 4,500+ learners. Reduced course build cycles from 9 to 4 months. Developed QA systems reducing review time 60%. Launched an AI-driven faculty training program reaching 400+ faculty annually at 70–80% lower delivery cost.</p>
-    </div>
-    <div class="exp-item fade-in">
-      <p class="exp-years">Mar 2025 — Jun 2025</p>
-      <p class="exp-title">Instructional Design Consultant & Project Manager</p>
-      <p class="exp-org">Yale School of Medicine · Remote (Part-Time)</p>
-      <p class="exp-desc">Developed a standardized instructor-led workshop template and streamlined job-aid production, reducing nurse training preparation time by 40%. Collaborated with 3 SMEs to design multi-format nurse training materials including interactive webpages, PDF job aids, and slide decks.</p>
-    </div>
-    <div class="exp-item fade-in">
-      <p class="exp-years">May 2023 — Aug 2023</p>
-      <p class="exp-title">Instructional Designer Intern</p>
-      <p class="exp-org">School of Professional Studies, Columbia University · New York, NY</p>
-      <p class="exp-desc">Designed and facilitated an Empathic Course Design workshop for 12 SMEs. Collaborated with IDs to develop four master-level online courses in Canvas and Adobe Captivate; delivered actionable feedback on syllabi and storyboards to strengthen instructional alignment.</p>
-    </div>
-    <div class="exp-item fade-in">
-      <p class="exp-years">May 2023 — May 2024</p>
-      <p class="exp-title">Curriculum Designer & Academic Advisor</p>
-      <p class="exp-org">Thinktown Education · New York, NY</p>
-      <p class="exp-desc">Redesigned psychology curriculum based on assessment data, integrating project-based learning and 6 animated videos using Canva and CapCut, improving student research skills. Reconstructed a lecture-based curriculum into a project-based learning experience, increasing enrollment by 5× and achieving a 100% student completion rate.</p>
-    </div>
-    <div class="exp-item fade-in">
-      <p class="exp-years">May 2020 — Jun 2021</p>
-      <p class="exp-title">Instructional Designer & Product Manager</p>
-      <p class="exp-org">iFLYTEK · Shanghai, China</p>
-      <p class="exp-desc">Developed 12 story-based, gamified English learning modules for 50,000+ learners. Designed branching scenarios as formative assessments. Facilitated 3 usability sessions and iteratively improved features — resulting in integration into iFLYTEK's best-selling educational product.</p>
-    </div>
-  </div>
-</section>
-
 <!-- PROJECTS -->
 <section class="projects" id="projects">
   <p class="section-label">Work</p>
   <h2 class="section-title">Selected Projects</h2>
   <div class="projects-grid">
+    <!-- 1. Mia EMT Simulator -->
+    <div class="project-card fade-in">
+      <p class="project-tag">Simulation · AI · Accessibility</p>
+      <h3 class="project-title">Mia — EMT Practice Simulator</h3>
+      <p class="project-subtitle">Online Course Conversion · Vanderbilt University SPED 7800</p>
+      <div class="project-links">
+        <a href="https://ll3589.github.io/EMT-simulation-sansAI/" class="project-link" target="_blank">▶ Branching Scenario</a>
+        <a href="https://ll3589.github.io/EMT-simulation/" class="project-link" target="_blank">🤖 AI Simulator</a>
+      </div>
+      <span class="project-impact">↑ Two live prototypes for a high-stakes online conversion challenge</span>
+      <p class="project-summary" style="font-size:0.78rem;color:var(--warm-gray);font-style:italic;margin-top:0.5rem;">⚠️ A friendly note: the AI Simulator runs on a real API — please don't play it so much that you bankrupt me! 😅</p>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-text">Graduate students in SPED 7800 at Vanderbilt University, learning Enhanced Milieu Teaching (EMT) — a naturalistic, evidence-based language intervention for children with communication delays.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-text">A core in-person EMT practice assignment — where students interact live with a child — had no clear equivalent for an online audience. The instructional challenge: how do online learners practice a relational, real-time clinical skill without a live child or clinical supervisor in the room?</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">📍 Goal</p>
+          <p class="detail-text">Prototype two distinct digital solutions that simulate the EMT practice experience online, enabling the faculty to evaluate which approach — or combination — best supports the course's online conversion.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-text">Grounded both prototypes in published EMT research (Kaiser &amp; Pak, in press; Frey &amp; Kaiser, 2011) and the faculty's own course materials. Built a Custom GPT simulator for open-ended, AI-driven practice with debrief, and a hand-coded branching scenario for structured, beginner-friendly interaction — complete with strategy labels, scene-by-scene feedback, and a scored assessment. The branching scenario includes a research-grounded onboarding module and meets WCAG AA accessibility standards.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-text">Two live prototypes presented to the faculty SME for review and feedback. The project established a reusable framework for converting clinical simulation activities to online formats — applicable across health sciences and education courses.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-text">This project pushed me to think beyond content delivery into experience design — how to replicate not just the information, but the judgment and responsiveness that clinical practice requires. Building both an AI and a hard-coded version side by side made the tradeoffs between flexibility and structure very concrete.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> HTML · CSS · JavaScript · GitHub Pages · ChatGPT Custom GPT · WCAG AA Compliance</p>
+    </div>
 
-    <!-- 1. Online Learning Faculty Hub -->
+    <!-- 2. Online Learning Faculty Hub -->
     <div class="project-card fade-in">
       <p class="project-tag">Online Learning · Faculty Development</p>
       <h3 class="project-title">Online Learning Faculty Hub</h3>
@@ -825,6 +826,44 @@
       <p class="project-tools"><strong>Tools:</strong> Figma, Adobe Premiere Pro, Canva</p>
     </div>
 
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <p class="section-label">Career</p>
+  <h2 class="section-title">Professional Pathway</h2>
+  <div class="exp-grid">
+    <div class="exp-item fade-in">
+      <p class="exp-years">Jun 2024 — Present</p>
+      <p class="exp-title">Instructional Designer</p>
+      <p class="exp-org">Vanderbilt University · Nashville, TN</p>
+      <p class="exp-desc">Led design of 7 Coursera microlearning courses, 5 online degree programs, 3 certificate programs, and 10 async faculty trainings — expanding Vanderbilt's online reach to 4,500+ learners. Reduced course build cycles from 9 to 4 months. Developed QA systems reducing review time 60%. Launched an AI-driven faculty training program reaching 400+ faculty annually at 70–80% lower delivery cost.</p>
+    </div>
+    <div class="exp-item fade-in">
+      <p class="exp-years">Mar 2025 — Jun 2025</p>
+      <p class="exp-title">Instructional Design Consultant & Project Manager</p>
+      <p class="exp-org">Yale School of Medicine · Remote (Part-Time)</p>
+      <p class="exp-desc">Developed a standardized instructor-led workshop template and streamlined job-aid production, reducing nurse training preparation time by 40%. Collaborated with 3 SMEs to design multi-format nurse training materials including interactive webpages, PDF job aids, and slide decks.</p>
+    </div>
+    <div class="exp-item fade-in">
+      <p class="exp-years">May 2023 — May 2024</p>
+      <p class="exp-title">Curriculum Designer & Academic Advisor</p>
+      <p class="exp-org">Thinktown Education · New York, NY</p>
+      <p class="exp-desc">Redesigned psychology curriculum based on assessment data, integrating project-based learning and 6 animated videos using Canva and CapCut, improving student research skills. Reconstructed a lecture-based curriculum into a project-based learning experience, increasing enrollment by 5× and achieving a 100% student completion rate.</p>
+    </div>
+    <div class="exp-item fade-in">
+      <p class="exp-years">May 2023 — Aug 2023</p>
+      <p class="exp-title">Instructional Designer Intern</p>
+      <p class="exp-org">School of Professional Studies, Columbia University · New York, NY</p>
+      <p class="exp-desc">Designed and facilitated an Empathic Course Design workshop for 12 SMEs. Collaborated with IDs to develop four master-level online courses in Canvas and Adobe Captivate; delivered actionable feedback on syllabi and storyboards to strengthen instructional alignment.</p>
+    </div>
+    <div class="exp-item fade-in">
+      <p class="exp-years">May 2020 — Jun 2021</p>
+      <p class="exp-title">Instructional Designer & Product Manager</p>
+      <p class="exp-org">iFLYTEK · Shanghai, China</p>
+      <p class="exp-desc">Developed 12 story-based, gamified English learning modules for 50,000+ learners. Designed branching scenarios as formative assessments. Facilitated 3 usability sessions and iteratively improved features — resulting in integration into iFLYTEK's best-selling educational product.</p>
+    </div>
   </div>
 </section>
 
