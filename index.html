@@ -463,6 +463,56 @@
     .projects-grid { grid-template-columns: 1fr; }
     .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
   }
+
+  /* --- TESTIMONIALS --- */
+  .testimonials { background: var(--section-alt); }
+
+  .testimonials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .testimonial-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    padding: 3rem;
+    max-width: 900px;
+  }
+
+  .testimonial-pull {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--accent-dark);
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .testimonial-body p {
+    color: var(--warm-gray);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .testimonial-attrib {
+    margin-top: 1.8rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .testimonial-attrib .t-name { font-weight: 500; color: var(--ink); }
+  .testimonial-attrib .t-role { font-size: 0.85rem; color: var(--warm-gray); }
+  .testimonial-attrib .t-source { font-size: 0.75rem; color: var(--warm-gray); margin-top: 0.35rem; font-style: italic; }
+  .testimonial-attrib a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-light); }
+  .testimonial-attrib a:hover { border-bottom-color: var(--accent); }
+
+  @media (max-width: 768px) {
+    .testimonial-card { padding: 2rem; }
+  }
 </style>
 </head>
 <body>
@@ -473,6 +523,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -489,7 +540,7 @@
     <h1 class="hero-name">Lisa<br><em>Lei</em></h1>
     <p class="hero-tagline">Instructional Designer with senior-level expertise in higher-education e-learning. Led design of 7 Coursera courses and 5 online degree programs, expanding reach to 4,500+ learners and cutting course build time by more than 50%.</p>
     <div class="hero-cta">
-      <a href="https://drive.google.com/file/d/12qD0TJk3OIRP2TLdG3t3IESPIUacBjy1/view?usp=sharing" class="btn-primary" target="_blank">View Resume</a>
+      <a href="Lisa_Lei_Resume.pdf" class="btn-primary" target="_blank">View Resume</a>
       <a href="https://www.linkedin.com/in/yuruolei9969/" class="btn-outline" target="_blank">LinkedIn</a>
     </div>
   </div>
@@ -519,6 +570,44 @@
   <p class="section-label">Work</p>
   <h2 class="section-title">Selected Projects</h2>
   <div class="projects-grid">
+    <!-- 0. Articulate Storyline Sample Course -->
+    <div class="project-card fade-in">
+      <p class="project-tag">E-Learning · Articulate Storyline</p>
+      <h3 class="project-title">Articulate Storyline Sample Course</h3>
+      <p class="project-subtitle">Interactive Module · Articulate Storyline 360</p>
+      <div class="project-links">
+        <a href="emt-sample-course/" class="project-link" target="_blank">▶ Launch Course</a>
+      </div>
+      <span class="project-impact">↑ 16-slide Storyline module with an embedded branching simulation</span>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-text">Graduate learners practicing Enhanced Milieu Teaching (EMT): the same clinical skill and learner group behind the Mia simulator, revisited through a standard authoring-tool build.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-text">My earlier EMT prototypes were hand-coded in HTML, CSS, and JavaScript. That approach produces exactly the experience I want, but it is not how most instructional design teams work; a build that only I can maintain is a liability on a shared team.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">📍 Goal</p>
+          <p class="detail-text">Rebuild the core of the EMT practice experience natively in Articulate Storyline 360, so the same instructional thinking lives in a tool any team member can open, edit, and extend.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-text">Built a 16-slide module in Storyline 360 using layers, triggers, and states, then embedded the branching EMT simulation as a web object so learners move from instruction into practice without leaving the module. Published to HTML5 and self-hosted on GitHub Pages rather than relying on a review-link expiry.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-text">A live, self-hosted Storyline module demonstrating layer and trigger logic, web object integration, and clean HTML5 publishing, built from scratch on a Storyline trial in a single week.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-text">Learning Storyline after building the same experience by hand was clarifying. Coding taught me what interaction design actually requires; Storyline taught me how to deliver it in a form a team can own. The constraint of a timeline-and-trigger model made me more deliberate about what genuinely needs to be interactive.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> Articulate Storyline 360 · HTML5 Publishing · Web Objects · GitHub Pages</p>
+    </div>
+
     <!-- 1. Mia EMT Simulator -->
     <div class="project-card fade-in">
       <p class="project-tag">Simulation · AI · Accessibility</p>
@@ -829,6 +918,45 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <p class="section-label">Partnership</p>
+  <h2 class="section-title">Testimonials</h2>
+  <div class="testimonials-list">
+
+  <div class="testimonial-card fade-in">
+    <p class="testimonial-pull">"She has a rare ability to make faculty feel supported while simultaneously inspiring them to produce their very best work."</p>
+    <div class="testimonial-body">
+      <p>I had the pleasure of working closely with Lisa during the development of my online course at Vanderbilt Law School, and I cannot recommend her highly enough. Lisa is exceptionally bright, thoughtful, and collaborative, and working with her was both enjoyable and intellectually rewarding.</p>
+      <p>She went well beyond the technical aspects of course development and guided me expertly through the use of Brightspace. More importantly, she brought a sophisticated understanding of online pedagogy and offered insightful, substantive recommendations about how to communicate effectively with students in a digital learning environment. Her expertise consistently elevated both the design of the course and the overall student experience.</p>
+      <p>One of the highlights of our collaboration was developing innovative approaches to incorporating artificial intelligence into the curriculum. Lisa was an outstanding thought partner throughout that process, combining creativity with sound instructional design principles.</p>
+      <p>What impressed me most was her collaborative style. Although I had taught a version of this course for several years, she approached every conversation with respect for my experience while offering constructive, perceptive suggestions that significantly improved the final product. Her feedback was never heavy-handed; instead, it was thoughtful, tactful, and remarkably effective.</p>
+    </div>
+    <div class="testimonial-attrib">
+      <p class="t-name"><a href="https://law.vanderbilt.edu/bio/stephanie-wilka/" target="_blank">Stephanie Wilka</a></p>
+      <p class="t-role">Vanderbilt Law School</p>
+      <p class="t-source">Faculty partner · Online course development</p>
+    </div>
+  </div>
+
+  <div class="testimonial-card fade-in">
+    <p class="testimonial-pull">"I know that I can always count on Lisa to ask the right questions, and I know she will do whatever it takes to make sure the final product meets the needs of everyone involved."</p>
+    <div class="testimonial-body">
+      <p>Lisa is a phenomenal instructional designer who brings rigor and inquisitiveness to every project she works on. I know that I can always count on Lisa to ask the right questions, and I know she will do whatever it takes to make sure the final product meets the needs of everyone involved.</p>
+      <p>One of the traits that I admire most is her ability to quickly develop strong relationships with SMEs and university faculty. Trust is integral to the work of instructional design, and Lisa is skilled at developing trust and rapport with ease. This is undoubtedly because it is clear within the first few minutes of speaking with her that Lisa cares about ensuring that the educational materials she works on have the greatest possible impact on the students they reach.</p>
+      <p>In addition to her talent for building relationships, she brings a keen eye for identifying and implementing the latest developments in educational technology and pedagogical theories. If there is a development in the field, Lisa is the first to know about it, and she takes the time to thoroughly understand and evaluate new opportunities to determine if they are worth pursuing. This allows her to make informed recommendations to the faculty and SMEs she works with, without falling into the trap of pursuing technology for technology's sake.</p>
+      <p>In short, Lisa is a phenomenal colleague, and I am lucky to have had the privilege of working with her!</p>
+    </div>
+    <div class="testimonial-attrib">
+      <p class="t-name"><a href="https://www.linkedin.com/in/marcy-pedzwater-phd-7b3182159/" target="_blank">Marcy Pedzwater, PhD</a></p>
+      <p class="t-role">Former Instructional Design Manager · Vanderbilt University</p>
+      <p class="t-source">Direct manager · LinkedIn recommendation, June 2026</p>
+    </div>
+  </div>
+
+  </div>
+</section>
+
 <!-- EXPERIENCE -->
 <section class="experience" id="experience">
   <p class="section-label">Career</p>
@@ -876,7 +1004,7 @@
       <div class="skill-group">
         <p class="skill-group-title">Core Skills</p>
         <ul class="skill-list">
-          <li>Course Authoring — Articulate Rise, Adobe Captivate</li>
+          <li>Course Authoring — <strong>Articulate Storyline 360</strong>, Articulate Rise, Adobe Captivate</li>
           <li>LMS — Brightspace & Canvas (specialist), Coursera</li>
           <li>Learning Analytics — R, Python</li>
           <li>Storyboarding & Instructional Design (ADDIE, SAM)</li>
@@ -934,7 +1062,7 @@
   <div class="contact-links">
     <a href="mailto:leilisa99@gmail.com" class="contact-link">leilisa99@gmail.com</a>
     <a href="https://www.linkedin.com/in/yuruolei9969/" class="contact-link" target="_blank">LinkedIn</a>
-    <a href="https://drive.google.com/file/d/12qD0TJk3OIRP2TLdG3t3IESPIUacBjy1/view?usp=sharing" class="contact-link" target="_blank">Resume PDF</a>
+    <a href="Lisa_Lei_Resume.pdf" class="contact-link" target="_blank">Resume PDF</a>
   </div>
 </section>
 
