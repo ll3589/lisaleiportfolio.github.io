@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ll3589.github.io/lisaleiportfolio.github.io/sitemap.xml
