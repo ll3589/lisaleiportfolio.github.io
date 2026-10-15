@@ -360,6 +360,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.06em;
     padding: 0.3rem 0.75rem;
+    margin-top: 0.9rem;
     margin-bottom: 1.2rem;
     font-weight: 500;
   }
@@ -381,7 +382,7 @@
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 0.2rem;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .detail-text { font-size: 0.83rem; color: var(--warm-gray); line-height: 1.7; }
@@ -409,6 +410,31 @@
     transition: all 0.2s;
   }
   .project-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .project-link::after { content: "\2197"; margin-left: 0.4em; font-size: 0.9em; }
+
+  /* PROJECT FILTERS */
+  .project-filters { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: -1.5rem 0 0.75rem; }
+  .filter-btn {
+    font-family: inherit;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--card-bg);
+    border: 1px solid var(--accent-light);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: var(--accent); }
+  .filter-btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .filter-btn:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 2px; }
+  .filter-note { font-size: 0.78rem; color: var(--warm-gray); margin-bottom: 1.5rem; min-height: 1.2em; }
+  .project-card[hidden] { display: none; }
+  @media (max-width: 600px) {
+    .project-filters { margin-top: -1rem; gap: 0.5rem; }
+    .filter-btn { min-height: 44px; padding: 0.5rem 0.8rem; }
+  }
 
   /* SKILLS */
   .skills { background: var(--section-alt); }
@@ -689,353 +715,361 @@
 <section class="projects" id="projects">
   <p class="section-label">Work</p>
   <h2 class="section-title">Selected Projects</h2>
+  <div class="project-filters" role="group" aria-label="Filter projects by category">
+    <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" class="filter-btn" data-filter="authoring" aria-pressed="false">Authoring Tool Skills</button>
+    <button type="button" class="filter-btn" data-filter="vibe" aria-pressed="false">Vibe Coding &amp; Simulation</button>
+    <button type="button" class="filter-btn" data-filter="game" aria-pressed="false">Game-Based Learning</button>
+    <button type="button" class="filter-btn" data-filter="faculty" aria-pressed="false">Faculty Development</button>
+    <button type="button" class="filter-btn" data-filter="creative" aria-pressed="false">Creative Projects</button>
+  </div>
+  <p class="filter-note" id="filterNote" aria-live="polite"></p>
   <div class="projects-grid">
-    <!-- 00. Plot Twist! Gamified Storyline Proof of Concept (UTK) -->
-    <div class="project-card fade-in">
+    <!-- 1. Plot Twist! Gamified Storyline Proof of Concept (UTK) -->
+    <div class="project-card fade-in" data-cats="authoring game creative">
       <p class="project-tag">Gamification · Articulate Storyline</p>
       <h3 class="project-title">Plot Twist! A Mystery Writing Challenge</h3>
       <p class="project-subtitle">Gamified Proof of Concept · University of Tennessee, Knoxville</p>
       <div class="project-links">
-        <a href="plot-twist/" class="project-link" target="_blank">▶ Play the Challenge</a>
+        <a href="plot-twist/story.html" class="project-link" target="_blank">Play the Challenge</a>
       </div>
-      <span class="project-impact">↑ Shows faculty what gamified practice can look like, no AI or custom app required</span>
+      <span class="project-impact">Shows faculty what gamified practice can look like, no AI or custom app required</span>
       <div class="project-detail">
         <div class="detail-row">
-          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-label">Audience</p>
           <p class="detail-text">UTK faculty exploring gamified learning for their courses. The learners inside the game are students building creative writing skills, specifically using foreshadowing to make a surprising plot twist feel believable.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-label">Problem</p>
           <p class="detail-text">"Gamification" is easy to talk about and hard to picture. Without a concrete example, faculty tend to imagine points and badges added on top of content, or assume anything game-like needs AI or a custom-built app.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">📍 Goal</p>
+          <p class="detail-label">Goal</p>
           <p class="detail-text">Build a clickable proof of concept that shows faculty the level of gamification our team can offer in a standard authoring tool, with the game mechanics serving a real skill rather than decorating it.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-label">Approach</p>
           <p class="detail-text">Designed a short game loop: learners name their character, choose one of three mystery cards to reveal a twist, write 2–3 sentences that set it up, get feedback at "The Editor's Desk," revise against a self-check checklist, and publish their finished story. User variables carry the learner's name, chosen twist, draft, and final revision from slide to slide, so the story they see at the end is their own. A TwistID variable drives conditional layers that give feedback specific to the twist they picked, a Play Again trigger resets every variable for a fresh round, and simple JavaScript extends what native triggers handle on their own.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-label">Outcome</p>
           <p class="detail-text">A working proof of concept faculty can play through in a few minutes, showing a pattern of choice, writing, targeted feedback, and revision that adapts to almost any discipline.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-label">Reflection</p>
           <p class="detail-text">The "game" here is really the revision cycle. Mystery cards and a publishing payoff give students a reason to care, but the learning happens when the editor's feedback sends them back to their own draft. Keeping the mechanics light made it easier for faculty to see the teaching underneath and picture it in their own courses.</p>
         </div>
       </div>
       <p class="project-tools"><strong>Tools:</strong> Articulate Storyline 360 · Variables &amp; Conditional Triggers · Layers &amp; States · JavaScript · HTML5 Publishing</p>
     </div>
 
-    <!-- 1. Mia EMT Simulator -->
-    <div class="project-card fade-in">
+    <!-- 2. Mia EMT Simulator -->
+    <div class="project-card fade-in" data-cats="authoring vibe">
       <p class="project-tag">Simulation · AI · Storyline · Accessibility</p>
       <h3 class="project-title">Mia — EMT Practice Simulator</h3>
       <p class="project-subtitle">Online Course Conversion · Vanderbilt University SPED 7800</p>
       <div class="project-links">
-        <a href="https://ll3589.github.io/EMT-simulation-sansAI/" class="project-link" target="_blank">▶ Branching Scenario</a>
-        <a href="https://ll3589.github.io/EMT-simulation/" class="project-link" target="_blank">🤖 AI Simulator</a>
-        <a href="emt-sample-course/" class="project-link" target="_blank">🎓 Storyline Module</a>
+        <a href="https://ll3589.github.io/EMT-simulation-sansAI/" class="project-link" target="_blank">Branching Scenario</a>
+        <a href="https://ll3589.github.io/EMT-simulation/" class="project-link" target="_blank">AI Simulator</a>
+        <a href="emt-sample-course/" class="project-link" target="_blank">Storyline Module</a>
       </div>
-      <span class="project-impact">↑ Three live versions for a high-stakes online conversion challenge</span>
-      <p class="project-summary" style="font-size:0.78rem;color:var(--warm-gray);font-style:italic;margin-top:0.5rem;">⚠️ A friendly note: the AI Simulator runs on a real API — please don't play it so much that you bankrupt me! 😅</p>
+      <span class="project-impact">Three live versions for a high-stakes online conversion challenge</span>
+      <p class="project-summary" style="font-size:0.78rem;color:var(--warm-gray);font-style:italic;margin-top:0.5rem;">A friendly note: the AI Simulator runs on a real API, so please don't play it so much that you bankrupt me! 😅</p>
       <div class="project-detail">
         <div class="detail-row">
-          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-label">Audience</p>
           <p class="detail-text">Graduate students in SPED 7800 at Vanderbilt University, learning Enhanced Milieu Teaching (EMT) — a naturalistic, evidence-based language intervention for children with communication delays.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-label">Problem</p>
           <p class="detail-text">A core in-person EMT practice assignment — where students interact live with a child — had no clear equivalent for an online audience. The instructional challenge: how do online learners practice a relational, real-time clinical skill without a live child or clinical supervisor in the room?</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">📍 Goal</p>
+          <p class="detail-label">Goal</p>
           <p class="detail-text">Prototype distinct digital solutions that simulate the EMT practice experience online, enabling the faculty to evaluate which approach — or combination — best supports the course's online conversion, and make sure at least one version lives in a tool the whole team can maintain.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-label">Approach</p>
           <p class="detail-text">Grounded the prototypes in published EMT research (Kaiser &amp; Pak, in press; Frey &amp; Kaiser, 2011) and the faculty's own course materials. Built a Custom GPT simulator for open-ended, AI-driven practice with debrief, and a hand-coded branching scenario for structured, beginner-friendly interaction — complete with strategy labels, scene-by-scene feedback, and a scored assessment. The branching scenario includes a research-grounded onboarding module and meets WCAG AA accessibility standards. I then rebuilt the experience as a 16-slide Articulate Storyline 360 module using layers, triggers, and states, embedding the branching simulation as a web object so learners move from instruction into practice without leaving the module, and published it to HTML5 on GitHub Pages.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-label">Outcome</p>
           <p class="detail-text">Three live versions (AI, hand-coded branching, and Storyline) presented for review, with the Storyline version built from scratch in a single week. The project established a reusable framework for converting clinical simulation activities to online formats — applicable across health sciences and education courses.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-label">Reflection</p>
           <p class="detail-text">This project pushed me to think beyond content delivery into experience design — how to replicate not just the information, but the judgment and responsiveness that clinical practice requires. Building an AI and a hard-coded version side by side made the tradeoffs between flexibility and structure very concrete. Rebuilding it in Storyline was clarifying too: coding taught me what interaction design actually requires, and Storyline taught me how to deliver it in a form a team can own.</p>
         </div>
       </div>
       <p class="project-tools"><strong>Tools:</strong> HTML · CSS · JavaScript · GitHub Pages · Claude Code · Anthropic API · Cloudflare Workers · Articulate Storyline 360 · Web Objects · WCAG AA Compliance</p>
     </div>
 
-    <!-- 2. Online Learning Faculty Hub -->
-    <div class="project-card fade-in">
-      <p class="project-tag">Online Learning · Faculty Development</p>
-      <h3 class="project-title">Online Learning Faculty Hub</h3>
-      <p class="project-subtitle">SharePoint Resource Site for New Online Faculty</p>
-      <div class="project-links">
-        <a href="https://youtu.be/LsU1K57-328?si=sNZry4IbQN1rp1MX" class="project-link" target="_blank">▶ Watch Demo</a>
-      </div>
-      <span class="project-impact">↑ Centralized onboarding for online educators</span>
-      <div class="project-detail">
-        <div class="detail-row">
-          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
-          <p class="detail-text">New and returning faculty members transitioning to online course delivery at Vanderbilt University.</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-label">⁉️ Problem</p>
-          <p class="detail-text">Faculty lacked a centralized, accessible resource hub to guide them through online teaching best practices, tools, and institutional support.</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-label">📍 Goal</p>
-          <p class="detail-text">Create a one-stop SharePoint site that streamlines faculty onboarding to online learning and reduces repeated individual support requests.</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-label">🔑 Approach</p>
-          <p class="detail-text">Designed and built a structured SharePoint site with curated instructional resources, how-to guides, and video walkthroughs aligned to faculty needs and the course design lifecycle.</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-label">🎯 Outcome</p>
-          <p class="detail-text">Delivered a scalable, self-service resource hub that improved faculty orientation to online teaching and reduced onboarding friction.</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-label">💡 Reflection</p>
-          <p class="detail-text">This project reinforced the value of designing for the full faculty journey — not just content delivery, but navigation, trust-building, and just-in-time support.</p>
-        </div>
-      </div>
-      <p class="project-tools"><strong>Tools:</strong> SharePoint, Video Production</p>
-    </div>
-
-    <!-- 2. Gemini AI App -->
-    <div class="project-card fade-in">
-      <p class="project-tag">AI Tool · Higher Education</p>
-      <h3 class="project-title">From Research to Learning Activities</h3>
-      <p class="project-subtitle">A Gemini AI App for Instructional Designers</p>
-      <div class="project-links">
-        <a href="https://from-research-to-learning-441065358755.us-west1.run.app/" class="project-link" target="_blank">🔗 Try the App</a>
-        <a href="https://youtu.be/6g2AOlSD700?si=aqUqyWNYgsTi2bJ0" class="project-link" target="_blank">▶ Watch Demo</a>
-      </div>
-      <span class="project-impact">↑ Accelerates design-to-activity workflow</span>
-      <div class="project-detail">
-        <div class="detail-row">
-          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
-          <p class="detail-text">Instructional designers working with SMEs across disciplines; faculty designing new or revised courses in online or accelerated formats.</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-label">⁉️ Problem</p>
-          <p class="detail-text">IDs working outside their domain spend disproportionate time decoding dense research, often defaulting to surface-level assessments and relying heavily on SMEs to generate ideas — reinforcing an imbalance where the SME creates and the ID executes.</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-label">📍 Goal</p>
-          <p class="detail-text">Give IDs a structured starting point for activity ideation, accelerate the research-to-design workflow, and enable more sophisticated, scenario-based learning suggestions across unfamiliar disciplines.</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-label">🔑 Approach</p>
-          <p class="detail-text">Built a web application in Gemini AI Studio where users upload a PDF or enter a DOI. The system extracts key ideas and generates pedagogically grounded activity suggestions, mirroring how experienced IDs progress from comprehension to application and transfer.</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-label">🎯 Outcome</p>
-          <p class="detail-text">The tool shifts the ID's role from note-taker to learning strategist — enabling designers to enter SME conversations with structured, application-oriented proposals rather than blank slates, shortening design cycles significantly.</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-label">💡 Reflection</p>
-          <p class="detail-text">Building this app deepened my understanding of AI as a cognitive accelerator. Rather than replacing expertise, it augments pedagogical thinking — freeing IDs to focus on alignment, learner experience, and assessment strategy.</p>
-        </div>
-      </div>
-      <p class="project-tools"><strong>Tools:</strong> Gemini AI Studio, Google Cloud Run</p>
-    </div>
-
     <!-- 3. Operation: Hire Me -->
-    <div class="project-card fade-in">
+    <div class="project-card fade-in" data-cats="vibe game faculty creative">
       <p class="project-tag">Multimedia · Workplace Learning</p>
       <h3 class="project-title">Operation: Hire Me!</h3>
       <p class="project-subtitle">AI-Enhanced Professional Learning Kit for Young Job Seekers</p>
       <div class="project-links">
-        <a href="https://youtu.be/IpY_apzgFN0?si=PdY8kdhNU0C8jfDh" class="project-link" target="_blank">▶ Watch Demo</a>
+        <a href="https://youtu.be/IpY_apzgFN0?si=PdY8kdhNU0C8jfDh" class="project-link" target="_blank">Watch Demo</a>
       </div>
-      <span class="project-impact">↑ 70%+ faculty engagement at Vanderbilt CDI</span>
+      <span class="project-impact">70%+ faculty engagement at Vanderbilt CDI</span>
       <div class="project-detail">
         <div class="detail-row">
-          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-label">Audience</p>
           <p class="detail-text">Young adult job seekers navigating competitive interview processes with limited structured preparation resources.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-label">Problem</p>
           <p class="detail-text">Existing solutions like university career centers are insufficient for interview skill-building — especially for the nuanced, contextual preparation that modern job searches require.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">📍 Goal</p>
+          <p class="detail-label">Goal</p>
           <p class="detail-text">Provide young adult job seekers with effective, accessible tools to build interview skills and reduce job-hunt stress through structured, engaging learning experiences.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-label">Approach</p>
           <p class="detail-text">Developed an AI-enhanced learning kit using the SAM instructional design framework. Incorporated AI-generated comic scenarios, scenario-based activities, and peer assessment to make learning engaging and collaborative.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-label">Outcome</p>
           <p class="detail-text">AI Comic Scenarios were featured at Vanderbilt's prestigious Course Design Institute (CDI), a two-day workshop attended by 49 faculty members. Over 70% found the scenarios engaging, generating four post-workshop follow-ups from faculty seeking to integrate the approach into their own teaching.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-label">Reflection</p>
           <p class="detail-text">This project strengthened my problem-solving mindset and showed me how cutting-edge AI tools can expand learning beyond the screen. Interviewing learners directly grounded my design decisions in real pain points rather than assumptions.</p>
         </div>
       </div>
       <p class="project-tools"><strong>Tools:</strong> Articulate Storyline, Adobe Premiere Pro, AI Comic Generator, CapCut, Canva</p>
     </div>
 
-    <!-- 4. Tricked by a Logo -->
-    <div class="project-card fade-in">
-      <p class="project-tag">Workshop · Marketing</p>
-      <h3 class="project-title">Tricked by a Logo?</h3>
-      <p class="project-subtitle">Pop Psychology Instructor-Led Workshop & Marketing Campaign</p>
+    <!-- 4. Online Learning Faculty Hub -->
+    <div class="project-card fade-in" data-cats="faculty">
+      <p class="project-tag">Online Learning · Faculty Development</p>
+      <h3 class="project-title">Online Learning Faculty Hub</h3>
+      <p class="project-subtitle">SharePoint Resource Site for New Online Faculty</p>
       <div class="project-links">
-        <a href="https://www.canva.com/design/DAF1lIKuN_M/U-K-UHj1Rayfi__31s04IA/view?utm_content=DAF1lIKuN_M&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5ba7131ac5" class="project-link" target="_blank">🔗 View Slides</a>
+        <a href="https://youtu.be/LsU1K57-328?si=sNZry4IbQN1rp1MX" class="project-link" target="_blank">Watch Demo</a>
       </div>
-      <span class="project-impact">↑ 22% increase in customer conversion rate</span>
+      <span class="project-impact">Centralized onboarding for online educators</span>
       <div class="project-detail">
         <div class="detail-row">
-          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
-          <p class="detail-text">High school students and their parents — the primary decision-makers for program enrollment.</p>
+          <p class="detail-label">Audience</p>
+          <p class="detail-text">New and returning faculty members transitioning to online course delivery at Vanderbilt University.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">⁉️ Problem</p>
-          <p class="detail-text">A new research-based psychology curriculum lacked visibility and needed a creative marketing strategy to drive enrollment and awareness among target clients.</p>
+          <p class="detail-label">Problem</p>
+          <p class="detail-text">Faculty lacked a centralized, accessible resource hub to guide them through online teaching best practices, tools, and institutional support.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">📍 Goal</p>
-          <p class="detail-text">Generate at least 2 enrollment inquiries from a 10-person workshop, while demonstrating the curriculum's methodology through the workshop experience itself.</p>
+          <p class="detail-label">Goal</p>
+          <p class="detail-text">Create a one-stop SharePoint site that streamlines faculty onboarding to online learning and reduces repeated individual support requests.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🔑 Approach</p>
-          <p class="detail-text">Designed and facilitated an engaging pop psychology workshop exploring how consumer behavior connects to the priming effect — mirroring the curriculum's core methodology of identifying everyday phenomena, analyzing them through a psychological lens, and encouraging critical thinking.</p>
+          <p class="detail-label">Approach</p>
+          <p class="detail-text">Designed and built a structured SharePoint site with curated instructional resources, how-to guides, and video walkthroughs aligned to faculty needs and the course design lifecycle.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🎯 Outcome</p>
-          <p class="detail-text">3 out of 7 participants enrolled in the full psychology program, exceeding the original goal. Customer conversion rate increased by 22%.</p>
+          <p class="detail-label">Outcome</p>
+          <p class="detail-text">Delivered a scalable, self-service resource hub that improved faculty orientation to online teaching and reduced onboarding friction.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">💡 Reflection</p>
-          <p class="detail-text">I recognized that parents — the key decision-makers — were less directly engaged during the session. Moving forward, I would develop dedicated parent-facing messaging that translates program outcomes into clear, relevant value for their priorities.</p>
+          <p class="detail-label">Reflection</p>
+          <p class="detail-text">This project reinforced the value of designing for the full faculty journey — not just content delivery, but navigation, trust-building, and just-in-time support.</p>
         </div>
       </div>
-      <p class="project-tools"><strong>Tools:</strong> Canva, Zoom, Kahoot</p>
+      <p class="project-tools"><strong>Tools:</strong> SharePoint, Video Production</p>
     </div>
 
-    <!-- 5. Career 101 -->
-    <div class="project-card fade-in">
+    <!-- 5. Gemini AI App -->
+    <div class="project-card fade-in" data-cats="vibe creative">
+      <p class="project-tag">AI Tool · Higher Education</p>
+      <h3 class="project-title">From Research to Learning Activities</h3>
+      <p class="project-subtitle">A Gemini AI App for Instructional Designers</p>
+      <div class="project-links">
+        <a href="https://from-research-to-learning-441065358755.us-west1.run.app/" class="project-link" target="_blank">Try the App</a>
+        <a href="https://youtu.be/6g2AOlSD700?si=aqUqyWNYgsTi2bJ0" class="project-link" target="_blank">Watch Demo</a>
+      </div>
+      <span class="project-impact">Accelerates design-to-activity workflow</span>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">Audience</p>
+          <p class="detail-text">Instructional designers working with SMEs across disciplines; faculty designing new or revised courses in online or accelerated formats.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">Problem</p>
+          <p class="detail-text">IDs working outside their domain spend disproportionate time decoding dense research, often defaulting to surface-level assessments and relying heavily on SMEs to generate ideas — reinforcing an imbalance where the SME creates and the ID executes.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">Goal</p>
+          <p class="detail-text">Give IDs a structured starting point for activity ideation, accelerate the research-to-design workflow, and enable more sophisticated, scenario-based learning suggestions across unfamiliar disciplines.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">Approach</p>
+          <p class="detail-text">Built a web application in Gemini AI Studio where users upload a PDF or enter a DOI. The system extracts key ideas and generates pedagogically grounded activity suggestions, mirroring how experienced IDs progress from comprehension to application and transfer.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">Outcome</p>
+          <p class="detail-text">The tool shifts the ID's role from note-taker to learning strategist — enabling designers to enter SME conversations with structured, application-oriented proposals rather than blank slates, shortening design cycles significantly.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">Reflection</p>
+          <p class="detail-text">Building this app deepened my understanding of AI as a cognitive accelerator. Rather than replacing expertise, it augments pedagogical thinking — freeing IDs to focus on alignment, learner experience, and assessment strategy.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> Gemini AI Studio, Google Cloud Run</p>
+    </div>
+
+    <!-- 6. Career 101 -->
+    <div class="project-card fade-in" data-cats="authoring">
       <p class="project-tag">E-Learning · Adobe Captivate</p>
       <h3 class="project-title">Career 101 — Self Discovery Module</h3>
       <p class="project-subtitle">Async E-learning Module · Adobe Captivate</p>
       <div class="project-links">
-        <a href="https://yuruo99coursedesign.s3.amazonaws.com/Career+Choice+101+M1+v3/index.html" class="project-link" target="_blank">🔗 View Module</a>
+        <a href="https://yuruo99coursedesign.s3.amazonaws.com/Career+Choice+101+M1+v3/index.html" class="project-link" target="_blank">View Module</a>
       </div>
-      <span class="project-impact">↑ Positive learner feedback on interactive design</span>
+      <span class="project-impact">Positive learner feedback on interactive design</span>
       <div class="project-detail">
         <div class="detail-row">
-          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-label">Audience</p>
           <p class="detail-text">College students in New Zealand seeking career guidance, and Guo Ye — a career coach migrating her one-on-one practice to a scalable e-learning model.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-label">Problem</p>
           <p class="detail-text">Guo Ye's coaching content was unstructured and designed for in-person delivery. She had limited knowledge of the New Zealand career services landscape and no prior e-learning experience.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">📍 Goal</p>
+          <p class="detail-label">Goal</p>
           <p class="detail-text">Consolidate Guo Ye's coaching philosophy into a structured framework, then transfer it into an accessible, interactive e-learning module for self-directed learners before their coaching sessions.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-label">Approach</p>
           <p class="detail-text">Researched New Zealand's career services landscape and adopted Holland's Theory as the course framework. Conducted interviews with international students to surface their needs, then co-developed a SEPA (Self-reflection, Ethics, Plan, Action) model with the SME and built the module in Adobe Captivate with interactive quizzes and reflection activities.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-label">Outcome</p>
           <p class="detail-text">Draft testers and the client provided positive feedback on the interactive quiz design and SEPA framework structure. The project is ongoing with iterative refinements based on learner testing.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-label">Reflection</p>
           <p class="detail-text">Navigating two distinct stakeholders — the coach and the learners — while building the course framework from scratch was a significant learning experience. It sharpened my stakeholder interview skills and deepened my Adobe Captivate proficiency.</p>
         </div>
       </div>
       <p class="project-tools"><strong>Tools:</strong> Adobe Captivate, Miro, Amazon Web Services</p>
     </div>
 
-    <!-- 6. Empathic Course Design -->
-    <div class="project-card fade-in">
+    <!-- 7. Empathic Course Design -->
+    <div class="project-card fade-in" data-cats="faculty">
       <p class="project-tag">E-Learning · Faculty Workshop</p>
       <h3 class="project-title">Empathic Course Design Workshop</h3>
       <p class="project-subtitle">Self-Guided Online Workshop · Columbia University SPS</p>
       <div class="project-links">
-        <a href="https://youtu.be/TwFQYluropw?si=YC4B2vd-rNb5g4qU" class="project-link" target="_blank">▶ Watch Demo</a>
+        <a href="https://youtu.be/TwFQYluropw?si=YC4B2vd-rNb5g4qU" class="project-link" target="_blank">Watch Demo</a>
       </div>
-      <span class="project-impact">↑ 25% increase in client follow-up inquiries</span>
+      <span class="project-impact">25% increase in client follow-up inquiries</span>
       <div class="project-detail">
         <div class="detail-row">
-          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-label">Audience</p>
           <p class="detail-text">Faculty members at Columbia University's School of Professional Studies — subject matter experts who often struggle to connect course design with students' lived learning needs.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-label">Problem</p>
           <p class="detail-text">Despite deep expertise, many SPS faculty found it difficult to design courses that genuinely aligned with students' learning goals and engaged a diverse student body. The gap between expertise and empathic design was real but underacknowledged.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">📍 Goal</p>
+          <p class="detail-label">Goal</p>
           <p class="detail-text">Raise faculty awareness of empathic course design and equip them with practical, immediately applicable strategies to strengthen cognitive and social empathy in their teaching practice.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-label">Approach</p>
           <p class="detail-text">Interviewed ID colleagues to surface practical insights, then researched Empathic Course Design theory to structure the workshop. Developed an instructional video using CapCut, shared student feedback examples to illustrate the problem, and distributed a curated resource list for ongoing application.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-label">Outcome</p>
           <p class="detail-text">12 faculty members and IDs attended. Three reached out for further discussion post-workshop. Follow-up inquiry rate increased by 25%, and the workshop elevated empathic design as a team-wide conversation among the ID team.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-label">Reflection</p>
           <p class="detail-text">Designing this workshop revealed how video production skills are essential for modern instructional designers. Exploring CapCut as a lightweight, accessible tool was a creative constraint that pushed me to focus on clarity and storytelling over production complexity.</p>
         </div>
       </div>
       <p class="project-tools"><strong>Tools:</strong> Canva, Canvas LMS, Camtasia, CapCut, Google Docs & Sheets</p>
     </div>
 
-    <!-- 7. DecideWise -->
-    <div class="project-card fade-in">
+    <!-- 8. Tricked by a Logo -->
+    <div class="project-card fade-in" data-cats="">
+      <p class="project-tag">Workshop · Marketing</p>
+      <h3 class="project-title">Tricked by a Logo?</h3>
+      <p class="project-subtitle">Pop Psychology Instructor-Led Workshop & Marketing Campaign</p>
+      <div class="project-links">
+        <a href="https://www.canva.com/design/DAF1lIKuN_M/U-K-UHj1Rayfi__31s04IA/view?utm_content=DAF1lIKuN_M&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5ba7131ac5" class="project-link" target="_blank">View Slides</a>
+      </div>
+      <span class="project-impact">22% increase in customer conversion rate</span>
+      <div class="project-detail">
+        <div class="detail-row">
+          <p class="detail-label">Audience</p>
+          <p class="detail-text">High school students and their parents — the primary decision-makers for program enrollment.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">Problem</p>
+          <p class="detail-text">A new research-based psychology curriculum lacked visibility and needed a creative marketing strategy to drive enrollment and awareness among target clients.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">Goal</p>
+          <p class="detail-text">Generate at least 2 enrollment inquiries from a 10-person workshop, while demonstrating the curriculum's methodology through the workshop experience itself.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">Approach</p>
+          <p class="detail-text">Designed and facilitated an engaging pop psychology workshop exploring how consumer behavior connects to the priming effect — mirroring the curriculum's core methodology of identifying everyday phenomena, analyzing them through a psychological lens, and encouraging critical thinking.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">Outcome</p>
+          <p class="detail-text">3 out of 7 participants enrolled in the full psychology program, exceeding the original goal. Customer conversion rate increased by 22%.</p>
+        </div>
+        <div class="detail-row">
+          <p class="detail-label">Reflection</p>
+          <p class="detail-text">I recognized that parents — the key decision-makers — were less directly engaged during the session. Moving forward, I would develop dedicated parent-facing messaging that translates program outcomes into clear, relevant value for their priorities.</p>
+        </div>
+      </div>
+      <p class="project-tools"><strong>Tools:</strong> Canva, Zoom, Kahoot</p>
+    </div>
+
+    <!-- 9. DecideWise -->
+    <div class="project-card fade-in" data-cats="">
       <p class="project-tag">UX · App Design · SEL</p>
       <h3 class="project-title">DecideWise Learning App</h3>
       <p class="project-subtitle">Educational Mobile App Design — Collaborative Project</p>
       <div class="project-links">
-        <a href="https://youtu.be/S0wD-W78sE4?si=JoiH9RizeIJIBjSM" class="project-link" target="_blank">▶ Watch Demo</a>
+        <a href="https://youtu.be/S0wD-W78sE4?si=JoiH9RizeIJIBjSM" class="project-link" target="_blank">Watch Demo</a>
       </div>
-      <span class="project-impact">↑ 2nd most sought investment in class showcase</span>
+      <span class="project-impact">2nd most sought investment in class showcase</span>
       <div class="project-detail">
         <div class="detail-row">
-          <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
+          <p class="detail-label">Audience</p>
           <p class="detail-text">Emerging adults aged 18–26 who face pivotal life decisions without adequate structured support for building decision-making skills.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">⁉️ Problem</p>
+          <p class="detail-label">Problem</p>
           <p class="detail-text">Young adults navigate major decisions — career, relationships, finances — largely without frameworks or skill-building resources. Decision-making is rarely treated as a learnable, teachable skill.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">📍 Goal</p>
+          <p class="detail-label">Goal</p>
           <p class="detail-text">Raise awareness that decision-making is a learnable skill, and provide emerging adults with a gamified, evidence-based mobile experience to practice and strengthen it.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🔑 Approach</p>
+          <p class="detail-label">Approach</p>
           <p class="detail-text">Grounded the app's design in SEL (Social Emotional Learning) research and literature. Incorporated cost-benefit evaluation models, guided introspection activities, and gamification elements. Developed animated pitch videos to explain app functions and used Figma to prototype the user interface collaboratively.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">🎯 Outcome</p>
+          <p class="detail-label">Outcome</p>
           <p class="detail-text">The app emerged as the second most sought-after investment opportunity in the class showcase. Multiple classmates reached out post-presentation to request additional SEL activities and resources.</p>
         </div>
         <div class="detail-row">
-          <p class="detail-label">💡 Reflection</p>
+          <p class="detail-label">Reflection</p>
           <p class="detail-text">Collaborating across stakeholders while building an entirely new framework from scratch required disciplined prioritization. The project reinforced how stakeholder interviews and literature grounding together create more resonant, credible design rationale.</p>
         </div>
       </div>
       <p class="project-tools"><strong>Tools:</strong> Figma, Adobe Premiere Pro, Canva</p>
     </div>
-
   </div>
 </section>
 
@@ -1207,6 +1241,22 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Project filters
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.projects-grid .project-card');
+  const filterNote = document.getElementById('filterNote');
+  filterBtns.forEach(btn => btn.addEventListener('click', () => {
+    const f = btn.dataset.filter;
+    let shown = 0;
+    filterBtns.forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+    projectCards.forEach(card => {
+      const match = f === 'all' || (card.dataset.cats || '').split(' ').includes(f);
+      card.hidden = !match;
+      if (match) { card.classList.add('visible'); shown++; }
+    });
+    filterNote.textContent = f === 'all' ? '' : 'Showing ' + shown + ' of ' + projectCards.length + ' projects';
+  }));
 
   // Rotating titles
   const titles = ['Instructional Designer', 'Learning Experience Designer', 'Online Learning Consultant', 'Learning Analyst', 'Learning Designer', 'Media Researcher'];
