@@ -660,7 +660,7 @@
     <h1 class="hero-name">Lisa<br><em>Lei</em></h1>
     <p class="hero-tagline">Instructional Designer with senior-level expertise in higher-education e-learning. Led design of 7 Coursera courses and 5 online degree programs, expanding reach to 4,500+ learners and cutting course build time by more than 50%.</p>
     <div class="hero-cta">
-      <a href="Lisa_Lei_Resume.pdf" class="btn-primary" target="_blank">View Resume</a>
+      <a href="Lisa_Lei_HigherEd_Oct2026.pdf" class="btn-primary" target="_blank">View Resume</a>
       <a href="https://www.linkedin.com/in/yuruolei9969/" class="btn-outline" target="_blank">LinkedIn</a>
     </div>
   </div>
@@ -690,54 +690,55 @@
   <p class="section-label">Work</p>
   <h2 class="section-title">Selected Projects</h2>
   <div class="projects-grid">
-    <!-- 0. Articulate Storyline Sample Course -->
+    <!-- 00. Plot Twist! Gamified Storyline Proof of Concept (UTK) -->
     <div class="project-card fade-in">
-      <p class="project-tag">E-Learning · Articulate Storyline</p>
-      <h3 class="project-title">Articulate Storyline Sample Course</h3>
-      <p class="project-subtitle">Interactive Module · Articulate Storyline 360</p>
+      <p class="project-tag">Gamification · Articulate Storyline</p>
+      <h3 class="project-title">Plot Twist! A Mystery Writing Challenge</h3>
+      <p class="project-subtitle">Gamified Proof of Concept · University of Tennessee, Knoxville</p>
       <div class="project-links">
-        <a href="emt-sample-course/" class="project-link" target="_blank">▶ Launch Course</a>
+        <a href="plot-twist/" class="project-link" target="_blank">▶ Play the Challenge</a>
       </div>
-      <span class="project-impact">↑ 16-slide Storyline module with an embedded branching simulation</span>
+      <span class="project-impact">↑ Shows faculty what gamified practice can look like, no AI or custom app required</span>
       <div class="project-detail">
         <div class="detail-row">
           <p class="detail-label">🧑‍🤝‍🧑 Audience</p>
-          <p class="detail-text">Graduate learners practicing Enhanced Milieu Teaching (EMT): the same clinical skill and learner group behind the Mia simulator, revisited through a standard authoring-tool build.</p>
+          <p class="detail-text">UTK faculty exploring gamified learning for their courses. The learners inside the game are students building creative writing skills, specifically using foreshadowing to make a surprising plot twist feel believable.</p>
         </div>
         <div class="detail-row">
           <p class="detail-label">⁉️ Problem</p>
-          <p class="detail-text">My earlier EMT prototypes were hand-coded in HTML, CSS, and JavaScript. That approach produces exactly the experience I want, but it is not how most instructional design teams work; a build that only I can maintain is a liability on a shared team.</p>
+          <p class="detail-text">"Gamification" is easy to talk about and hard to picture. Without a concrete example, faculty tend to imagine points and badges added on top of content, or assume anything game-like needs AI or a custom-built app.</p>
         </div>
         <div class="detail-row">
           <p class="detail-label">📍 Goal</p>
-          <p class="detail-text">Rebuild the core of the EMT practice experience natively in Articulate Storyline 360, so the same instructional thinking lives in a tool any team member can open, edit, and extend.</p>
+          <p class="detail-text">Build a clickable proof of concept that shows faculty the level of gamification our team can offer in a standard authoring tool, with the game mechanics serving a real skill rather than decorating it.</p>
         </div>
         <div class="detail-row">
           <p class="detail-label">🔑 Approach</p>
-          <p class="detail-text">Built a 16-slide module in Storyline 360 using layers, triggers, and states, then embedded the branching EMT simulation as a web object so learners move from instruction into practice without leaving the module. Published to HTML5 and self-hosted on GitHub Pages rather than relying on a review-link expiry.</p>
+          <p class="detail-text">Designed a short game loop: learners name their character, choose one of three mystery cards to reveal a twist, write 2–3 sentences that set it up, get feedback at "The Editor's Desk," revise against a self-check checklist, and publish their finished story. User variables carry the learner's name, chosen twist, draft, and final revision from slide to slide, so the story they see at the end is their own. A TwistID variable drives conditional layers that give feedback specific to the twist they picked, a Play Again trigger resets every variable for a fresh round, and simple JavaScript extends what native triggers handle on their own.</p>
         </div>
         <div class="detail-row">
           <p class="detail-label">🎯 Outcome</p>
-          <p class="detail-text">A live, self-hosted Storyline module demonstrating layer and trigger logic, web object integration, and clean HTML5 publishing, built from scratch on a Storyline trial in a single week.</p>
+          <p class="detail-text">A working proof of concept faculty can play through in a few minutes, showing a pattern of choice, writing, targeted feedback, and revision that adapts to almost any discipline.</p>
         </div>
         <div class="detail-row">
           <p class="detail-label">💡 Reflection</p>
-          <p class="detail-text">Learning Storyline after building the same experience by hand was clarifying. Coding taught me what interaction design actually requires; Storyline taught me how to deliver it in a form a team can own. The constraint of a timeline-and-trigger model made me more deliberate about what genuinely needs to be interactive.</p>
+          <p class="detail-text">The "game" here is really the revision cycle. Mystery cards and a publishing payoff give students a reason to care, but the learning happens when the editor's feedback sends them back to their own draft. Keeping the mechanics light made it easier for faculty to see the teaching underneath and picture it in their own courses.</p>
         </div>
       </div>
-      <p class="project-tools"><strong>Tools:</strong> Articulate Storyline 360 · HTML5 Publishing · Web Objects · GitHub Pages</p>
+      <p class="project-tools"><strong>Tools:</strong> Articulate Storyline 360 · Variables &amp; Conditional Triggers · Layers &amp; States · JavaScript · HTML5 Publishing</p>
     </div>
 
     <!-- 1. Mia EMT Simulator -->
     <div class="project-card fade-in">
-      <p class="project-tag">Simulation · AI · Accessibility</p>
+      <p class="project-tag">Simulation · AI · Storyline · Accessibility</p>
       <h3 class="project-title">Mia — EMT Practice Simulator</h3>
       <p class="project-subtitle">Online Course Conversion · Vanderbilt University SPED 7800</p>
       <div class="project-links">
         <a href="https://ll3589.github.io/EMT-simulation-sansAI/" class="project-link" target="_blank">▶ Branching Scenario</a>
         <a href="https://ll3589.github.io/EMT-simulation/" class="project-link" target="_blank">🤖 AI Simulator</a>
+        <a href="emt-sample-course/" class="project-link" target="_blank">🎓 Storyline Module</a>
       </div>
-      <span class="project-impact">↑ Two live prototypes for a high-stakes online conversion challenge</span>
+      <span class="project-impact">↑ Three live versions for a high-stakes online conversion challenge</span>
       <p class="project-summary" style="font-size:0.78rem;color:var(--warm-gray);font-style:italic;margin-top:0.5rem;">⚠️ A friendly note: the AI Simulator runs on a real API — please don't play it so much that you bankrupt me! 😅</p>
       <div class="project-detail">
         <div class="detail-row">
@@ -750,22 +751,22 @@
         </div>
         <div class="detail-row">
           <p class="detail-label">📍 Goal</p>
-          <p class="detail-text">Prototype two distinct digital solutions that simulate the EMT practice experience online, enabling the faculty to evaluate which approach — or combination — best supports the course's online conversion.</p>
+          <p class="detail-text">Prototype distinct digital solutions that simulate the EMT practice experience online, enabling the faculty to evaluate which approach — or combination — best supports the course's online conversion, and make sure at least one version lives in a tool the whole team can maintain.</p>
         </div>
         <div class="detail-row">
           <p class="detail-label">🔑 Approach</p>
-          <p class="detail-text">Grounded both prototypes in published EMT research (Kaiser &amp; Pak, in press; Frey &amp; Kaiser, 2011) and the faculty's own course materials. Built a Custom GPT simulator for open-ended, AI-driven practice with debrief, and a hand-coded branching scenario for structured, beginner-friendly interaction — complete with strategy labels, scene-by-scene feedback, and a scored assessment. The branching scenario includes a research-grounded onboarding module and meets WCAG AA accessibility standards.</p>
+          <p class="detail-text">Grounded the prototypes in published EMT research (Kaiser &amp; Pak, in press; Frey &amp; Kaiser, 2011) and the faculty's own course materials. Built a Custom GPT simulator for open-ended, AI-driven practice with debrief, and a hand-coded branching scenario for structured, beginner-friendly interaction — complete with strategy labels, scene-by-scene feedback, and a scored assessment. The branching scenario includes a research-grounded onboarding module and meets WCAG AA accessibility standards. I then rebuilt the experience as a 16-slide Articulate Storyline 360 module using layers, triggers, and states, embedding the branching simulation as a web object so learners move from instruction into practice without leaving the module, and published it to HTML5 on GitHub Pages.</p>
         </div>
         <div class="detail-row">
           <p class="detail-label">🎯 Outcome</p>
-          <p class="detail-text">Two live prototypes presented to the faculty SME for review and feedback. The project established a reusable framework for converting clinical simulation activities to online formats — applicable across health sciences and education courses.</p>
+          <p class="detail-text">Three live versions (AI, hand-coded branching, and Storyline) presented for review, with the Storyline version built from scratch in a single week. The project established a reusable framework for converting clinical simulation activities to online formats — applicable across health sciences and education courses.</p>
         </div>
         <div class="detail-row">
           <p class="detail-label">💡 Reflection</p>
-          <p class="detail-text">This project pushed me to think beyond content delivery into experience design — how to replicate not just the information, but the judgment and responsiveness that clinical practice requires. Building both an AI and a hard-coded version side by side made the tradeoffs between flexibility and structure very concrete.</p>
+          <p class="detail-text">This project pushed me to think beyond content delivery into experience design — how to replicate not just the information, but the judgment and responsiveness that clinical practice requires. Building an AI and a hard-coded version side by side made the tradeoffs between flexibility and structure very concrete. Rebuilding it in Storyline was clarifying too: coding taught me what interaction design actually requires, and Storyline taught me how to deliver it in a form a team can own.</p>
         </div>
       </div>
-      <p class="project-tools"><strong>Tools:</strong> HTML · CSS · JavaScript · GitHub Pages · Claude Code · Anthropic API · Cloudflare Workers · WCAG AA Compliance</p>
+      <p class="project-tools"><strong>Tools:</strong> HTML · CSS · JavaScript · GitHub Pages · Claude Code · Anthropic API · Cloudflare Workers · Articulate Storyline 360 · Web Objects · WCAG AA Compliance</p>
     </div>
 
     <!-- 2. Online Learning Faculty Hub -->
@@ -1083,7 +1084,13 @@
   <h2 class="section-title">Professional Pathway</h2>
   <div class="exp-grid">
     <div class="exp-item fade-in">
-      <p class="exp-years">Jun 2024 — Present</p>
+      <p class="exp-years">Sep 2026 — Present</p>
+      <p class="exp-title">Instructional Designer and Developer</p>
+      <p class="exp-org">University of Tennessee, Knoxville · Remote</p>
+      <p class="exp-desc">Design and develop interactive learning objects in Articulate Storyline 360 and Rise 360 for adult-facing online courses in Canvas, consulting with faculty through a full ADDIE cycle. Delivered 4 interactions with 100% faculty approval using Storyline variables, triggers, layers, and JavaScript. Cut a projected 10-week build to 4 weeks by splitting a complex request into linked Google Earth, Rise, and Canvas components.</p>
+    </div>
+    <div class="exp-item fade-in">
+      <p class="exp-years">Jun 2024 — Aug 2026</p>
       <p class="exp-title">Instructional Designer</p>
       <p class="exp-org">Vanderbilt University · Nashville, TN</p>
       <p class="exp-desc">Led design of 7 Coursera microlearning courses, 5 online degree programs, 3 certificate programs, and 10 async faculty trainings — expanding Vanderbilt's online reach to 4,500+ learners. Reduced course build cycles from 9 to 4 months. Developed QA systems reducing review time 60%. Launched an AI-driven faculty training program reaching 400+ faculty annually at 70–80% lower delivery cost.</p>
@@ -1182,7 +1189,7 @@
   <div class="contact-links">
     <a href="mailto:leilisa99@gmail.com" class="contact-link">leilisa99@gmail.com</a>
     <a href="https://www.linkedin.com/in/yuruolei9969/" class="contact-link" target="_blank">LinkedIn</a>
-    <a href="Lisa_Lei_Resume.pdf" class="contact-link" target="_blank">Resume PDF</a>
+    <a href="Lisa_Lei_HigherEd_Oct2026.pdf" class="contact-link" target="_blank">Resume PDF</a>
   </div>
 </section>
 
